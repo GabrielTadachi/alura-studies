@@ -1,10 +1,11 @@
 import React from 'react';
-import Botao from './components/botao';
+import Botao from './components/Botao';
+import Formulario from './components/Formulario/index';
 
 function App() {
   return (
     <div className="App">
-      <Botao></Botao>
+      <Formulario></Formulario>
     </div>
   );
 }
