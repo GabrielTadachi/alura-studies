@@ -1,6 +1,7 @@
 import React from 'react';
 import Botao from '../Botao';
 
+//Class Component -> Forma Antiga!
 class Formulario extends React.Component {
     render(){
         return(
