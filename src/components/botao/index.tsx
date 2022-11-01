@@ -12,8 +12,8 @@ import style from './Botao.module.scss';
 
 // export default Botao;
 
-export default function Botao({children} : {children: React.ReactNode}){
+export default function Botao({children, type} : {children: React.ReactNode, type?: "button" | "submit" | "reset" | undefined}){
   return(
-    <button className={style.botao}>{children}</button>
+    <button className={style.botao} type={type}>{children}</button>
   )
 }
