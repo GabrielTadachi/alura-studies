@@ -2,10 +2,11 @@ import React from 'react';
 import { ITarefa } from '../../types/tarefa';
 import Botao from '../Botao';
 import style from './Formulario.module.scss';
+import {v4 as uuidv4} from 'uuid';
 
 // Class Component -> Forma Antiga!
 class Formulario extends React.Component<{
-    setTarefas: React.Dispatch<React.SetStateAction<ITarefa[]>>;
+    setTarefas: React.Dispatch<React.SetStateAction<ITarefa[]>>
   }> {
     state = {
         tarefa: '',
@@ -14,7 +15,21 @@ class Formulario extends React.Component<{
     
     adicionarTarefa(event: React.FormEvent<HTMLFormElement>){
         event.preventDefault();
-        this.props.setTarefas(tarefasAntigas => [...tarefasAntigas, {...this.state}] );
+        this.props.setTarefas(tarefasAntigas => 
+            [
+                ...tarefasAntigas, 
+                {
+                    ...this.state,
+                    selecionado: false, 
+                    completado: false,
+                    id: uuidv4()
+                }
+            ] 
+        );
+        this.setState({
+            tarefa: '',
+            tempo: '00:00:00'
+        });
     }
 
     render(){
@@ -28,7 +43,7 @@ class Formulario extends React.Component<{
                 </div>
                 <div className={style.inputContainer}>
                     <label htmlFor='tempo'>Tempo</label>
-                    <input type="time" value={this.state.tempo} step="1" name="tempo" id="tempo" min="00:00:00" max="01:00:00" required onChange={evento =>{
+                    <input type="time" value={this.state.tempo} step="1" name="tempo" id="tempo" min="00:00:00" max="12:00:00" required onChange={evento =>{
                         this.setState({...this.state, tempo: evento.target.value})
                     }}/>
                 </div>
