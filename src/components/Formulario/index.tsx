@@ -8,6 +8,7 @@ import {v4 as uuidv4} from 'uuid';
 class Formulario extends React.Component<{
     setTarefas: React.Dispatch<React.SetStateAction<ITarefa[]>>
   }> {
+    //Estado Inicial
     state = {
         tarefa: '',
         tempo: '00:00:00'
