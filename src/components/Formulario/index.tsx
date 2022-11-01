@@ -15,10 +15,10 @@ class Formulario extends React.Component {
                     <label htmlFor='tempo'>Tempo</label>
                     <input type="time" step="1" name="tempo" id="tempo" min="00:00:00" max="01:00:00" required />
                 </div>
-                <Botao></Botao>
+                <Botao>Adicionar</Botao>
             </form>
         );
     }
 }
 
-export default Formulario;
+export default Formulario
